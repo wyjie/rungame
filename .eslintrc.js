@@ -31,6 +31,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.tsx', '.ts'] }], // 在文件写jsx代码
     'import/extensions': [ // import 导入规则
