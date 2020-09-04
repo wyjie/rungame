@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import AppReducer from '../containers/App/App.reducer';
+import SnakeReducer from '../containers/Snake/snake.reducer';
 
 export default combineReducers({
-  app: AppReducer,
+  snake: SnakeReducer,
 });

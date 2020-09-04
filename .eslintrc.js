@@ -45,5 +45,11 @@ module.exports = {
         ts: 'never',
       },
     ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error"
+    ],
+    'no-plusplus': 0,
+    'react/prop-types': 0
   },
 };

@@ -1,7 +1,12 @@
 import React from 'react';
 
-import { HomepageContainer } from './HomePage.style.components';
+import { HomepageWrapper } from './HomePage.style.components';
+import PikachuLoading from '../../components/PikachuLoading';
 
-const HomePage = (props: any) => <HomepageContainer />;
+const HomePage = () => (
+  <HomepageWrapper>
+    <PikachuLoading />
+  </HomepageWrapper>
+);
 
 export default HomePage;

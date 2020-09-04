@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-import { Images } from '../../themes';
-
-export const HomepageContainer = styled.div`
+export const HomepageWrapper = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
-  background-image: url(${Images.backgroundImage});
-  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
 `;
