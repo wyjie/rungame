@@ -3,7 +3,14 @@ import { connect } from 'react-redux';
 
 import Snake from './Snake.component';
 import { SankeProps, ChangeDirectionState } from './Snake.types';
-import { changeDirectionAction, changeSnakeAction } from './Snake.action';
+import {
+  changeDirectionAction,
+  changeSnakeAction,
+  snakeEatAction,
+  gameStartAction,
+} from './Snake.action';
+
+const SnakeContainer = (props: SankeProps) => <Snake {...props} />;
 
 const mapStateToProps = (state: any) => {
   const { snake } = state;
@@ -15,9 +22,9 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: Function) => ({
   changeDirection: (payload: ChangeDirectionState) => dispatch(changeDirectionAction(payload)),
   changeSnake: () => dispatch(changeSnakeAction()),
+  snakeEat: () => dispatch(snakeEatAction()),
+  gameStart: () => dispatch(gameStartAction()),
 });
-
-const SnakeContainer = (props: SankeProps) => <Snake {...props} />;
 
 export default connect(
   mapStateToProps,

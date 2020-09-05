@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import { SankeProps } from './Snake.types';
-import { snakeConvasSize, getPosition } from './Snake.helpers';
-import { Wrapper } from './Snake.components';
+import { snakeConvasSize, getPosition, getDirectionVector } from './Snake.helpers';
+import { Wrapper, GameStart } from './Snake.components';
 import { GAME_WIDTH, GAME_HEIGHT, GAME_ITEM_BLOCK_SIZE } from './Snake.constants';
 import Vector from '../../helpers/vector';
 import { Colors } from '../../themes';
@@ -24,7 +24,7 @@ class SnakeComponent extends Component<SankeProps> {
 
     setInterval(() => {
       this.snakRun();
-    }, 2000);
+    }, 150);
   }
 
   snakRun() {
@@ -47,22 +47,49 @@ class SnakeComponent extends Component<SankeProps> {
   }
 
   draw() {
-    const { snake } = this.props;
+    requestAnimationFrame(() => this.draw());
+    const {
+      start, snake, food, snakeEat, changeDirection, directionVector,
+    } = this.props;
+    this.ctx.fillStyle = Colors.snackBg;
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     for (let xIndex = 0; xIndex < GAME_WIDTH; xIndex++) {
       for (let yIndex = 0; yIndex < GAME_HEIGHT; yIndex++) {
-        this.drawBlock(new Vector({ x: xIndex, y: yIndex }), Colors.regular);
+        this.drawBlock(new Vector({ x: xIndex, y: yIndex }), Colors.snackBgItem);
       }
     }
 
+    if (!start) {
+      return;
+    }
+    this.drawBlock(food, Colors.red);
     for (let snakeIndex = 0; snakeIndex < snake.length; snakeIndex++) {
-      this.drawBlock(snake[snakeIndex], '#fff');
+      const snakeItem = snake[snakeIndex];
+      this.drawBlock(snakeItem, Colors.white);
+      if (snakeItem.x === food.x && snakeItem.y === food.y) {
+        snakeEat();
+      }
     }
 
-    requestAnimationFrame(this.draw);
+    window.onkeydown = (e: any) => {
+      const direction = getDirectionVector(e.key, directionVector);
+      changeDirection({ vector: direction });
+    };
   }
 
   render() {
-    return <Wrapper><canvas id="sanke-canvas" /></Wrapper>;
+    const { start, gameStart } = this.props;
+    return (
+      <Wrapper>
+        {!start && (
+          <div className="game-console">
+            <div className="game-name">贪吃蛇</div>
+            <GameStart onClick={() => gameStart()}>开始游戏</GameStart>
+          </div>
+        )}
+        <canvas id="sanke-canvas" />
+      </Wrapper>
+    );
   }
 }
 

@@ -1,5 +1,5 @@
 import Vector from '../../helpers/vector';
-import { CHANGE_DIRECTION, CHANGE_SNAKE } from './Snake.constants';
+import { CHANGE_DIRECTION, CHANGE_SNAKE, SNAKE_EAT, GAME_START, GAME_END } from './Snake.constants';
 
 export interface SankeProps {
   start: boolean,
@@ -7,8 +7,12 @@ export interface SankeProps {
   maxLength: number,
   foodPosition: object,
   snake: Array<Vector>,
+  header: Vector,
+  food: Vector,
   changeSnake: Function,
-  header: Function,
+  changeDirection: Function,
+  snakeEat: Function,
+  gameStart: Function,
 }
 
 export interface SankeState {
@@ -18,6 +22,7 @@ export interface SankeState {
   foodPosition: object,
   snake: Array<Vector>
   header: Vector,
+  food: Vector,
 }
 
 export interface SnakeConvasSizeType {
@@ -43,4 +48,16 @@ export interface ChangeSnake {
   type: typeof CHANGE_SNAKE
 }
 
-export type SankeReducerAction = ChangeDirection | ChangeSnake;
+export interface SnakeEat {
+  type: typeof SNAKE_EAT
+}
+
+export interface GameStart {
+  type: typeof GAME_START
+}
+
+export interface GameEnd {
+  type: typeof GAME_END
+}
+
+export type SankeReducerAction = ChangeDirection | ChangeSnake | SnakeEat | GameStart | GameEnd;
