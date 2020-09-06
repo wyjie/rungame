@@ -6,6 +6,7 @@ import Snake from '../Snake';
 import Polygon from '../Polygon';
 import GlobalStyle from '../../globalStyle';
 import DNA from '../DNA';
+import Tree from '../Tree';
 import Routers from '../../routers';
 
 export interface AppProps {
@@ -19,6 +20,7 @@ const AppComponent = () => (
         <Route path={Routers.snake} component={Snake} />
         <Route path={Routers.polygon} component={Polygon} />
         <Route path={Routers.dna} component={DNA} />
+        <Route path={Routers.tree} component={Tree} />
         <Route path={Routers.homepage} component={HomePage} />
       </Switch>
     </Router>

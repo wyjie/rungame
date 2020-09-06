@@ -3,4 +3,5 @@ export default {
   snake: '/snake',
   polygon: '/polygon',
   dna: '/dna',
+  tree: '/tree',
 };

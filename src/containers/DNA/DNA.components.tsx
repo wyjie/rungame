@@ -37,8 +37,6 @@ class DNA extends Component<any> {
   draw() {
     requestAnimationFrame(() => this.draw());
     this.time++;
-    this.ctx.fillStyle = Colors.regular;
-    this.ctx.fillRect(0, 0, this.cw, this.ch);
     this.ctx.clearRect(0, 0, this.cw, this.ch);
     this.ctx.fillStyle = Colors.regular;
     this.ctx.fillRect(0, 0, this.cw, this.ch);
