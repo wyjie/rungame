@@ -1,5 +1,7 @@
 import Vector from '../../helpers/vector';
-import { CHANGE_DIRECTION, CHANGE_SNAKE, SNAKE_EAT, GAME_START, GAME_END } from './Snake.constants';
+import {
+  CHANGE_DIRECTION, CHANGE_SNAKE, SNAKE_EAT, GAME_START, GAME_END,
+} from './Snake.constants';
 
 export interface SankeProps {
   start: boolean,

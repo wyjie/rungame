@@ -1,7 +1,14 @@
-import React from 'react';
+class Game {
+  ID: string;
 
-import { GameContainer } from './Game.style.components';
+  constructor(args: any) {
+    const props = {
 
-const GameComponent = (props: any) => <GameContainer />;
+    };
+    Object.assign(props, args);
+    Object.assign(this, props);
+    this.ID = '';
+  }
+}
 
-export default GameComponent;
+export default Game;

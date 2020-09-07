@@ -50,6 +50,7 @@ module.exports = {
       "error"
     ],
     'no-plusplus': 0,
-    'react/prop-types': 0
+    'react/prop-types': 0,
+    'func-names': 0,
   },
 };

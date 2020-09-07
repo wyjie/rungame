@@ -54,6 +54,13 @@ class Vector {
     this.y = y;
   }
 
+  clone() {
+    return (new Vector({
+      x: this.x,
+      y: this.y,
+    }));
+  }
+
   toString() {
     return `{x: ${this.x},  y: ${this.y}}`;
   }

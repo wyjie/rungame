@@ -61,8 +61,8 @@ class Polygon extends Component<any> {
     this.points = [];
     for (let index = 0; index < this.lineNumber; index++) {
       this.points.push(new Vector({
-        x: 20 * Math.sin(360 / this.lineNumber * index * degToPI),
-        y: 20 * Math.cos(360 / this.lineNumber * index * degToPI),
+        x: 20 * Math.sin((360 / this.lineNumber) * index * degToPI),
+        y: 20 * Math.cos((360 / this.lineNumber) * index * degToPI),
       }));
     }
 

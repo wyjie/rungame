@@ -1,4 +1,6 @@
-import { CHANGE_DIRECTION, CHANGE_SNAKE, SNAKE_EAT, GAME_END, GAME_START } from './Snake.constants';
+import {
+  CHANGE_DIRECTION, CHANGE_SNAKE, SNAKE_EAT, GAME_END, GAME_START,
+} from './Snake.constants';
 import { ChangeDirectionState } from './Snake.types';
 
 export const changeDirectionAction = (payload: ChangeDirectionState) => ({
